@@ -2,4 +2,4 @@
 
 - `composer install`
 - `php artisan migrate:install`
-- `php artisan migrate`
+- `php artisan migrate --seed`

@@ -8,7 +8,7 @@ use App\Http\Resources\FormEntryResource;
 use App\Services\FormEntryService;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CreateFormEntryController extends Controller
+class StoreFormEntryController extends Controller
 {
     public function __construct(
         private FormEntryService $service

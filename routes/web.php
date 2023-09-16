@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Web\CreateFormEntryController;
+use App\Http\Controllers\Web\ListFormEntriesController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('/form-entries')
+->name('formEntries.')
+->group(function () {
+    Route::get('/create', CreateFormEntryController::class)->name('create');
+    Route::get('/list', ListFormEntriesController::class)->name('list')->middleware('auth');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

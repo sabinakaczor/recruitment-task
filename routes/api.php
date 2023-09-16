@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\CreateFormEntryController;
+use App\Http\Controllers\Api\StoreFormEntryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,5 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('/form-entries')
 ->name('formEntries.')
 ->group(function () {
-    Route::post('/', CreateFormEntryController::class)->name('create');
+    Route::post('/', StoreFormEntryController::class)->name('store');
 });

@@ -17,7 +17,7 @@ class CreatingFormEntriesTest extends TestCase
     {
         parent::setUp();
 
-        $this->route = route('formEntries.create');
+        $this->route = route('formEntries.store');
     }
 
     /**
@@ -71,7 +71,8 @@ class CreatingFormEntriesTest extends TestCase
         $this->assertNotNull($model);
         $this->assertEquals($data['first_name'], $model->first_name);
         $this->assertEquals($data['last_name'], $model->last_name);
-        Storage::assertExists($model->attachment);
+        $filePath = substr($model->attachment, strlen('/storage'));
+        Storage::assertExists($filePath);
     }
 
     /**
