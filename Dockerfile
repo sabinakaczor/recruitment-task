@@ -10,8 +10,12 @@ RUN docker-php-ext-enable pdo_mysql
 WORKDIR /app
 COPY . /app
 
+COPY /.env.example /app/.env
+
 RUN composer install
 RUN npm install && npm run build
+RUN php artisan key:generate
+RUN php artisan storage:link
 
 EXPOSE 8000
 CMD php artisan serve --host=0.0.0.0 --port=8000
