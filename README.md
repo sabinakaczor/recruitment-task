@@ -1,7 +1,6 @@
-## Jak uruchomić projekt
+## How to launch the project:
 
-- `cp .env.example .env`
 - `docker compose up -d`
 - `make setup`
-- projekt powinien być dostępny pod adresem http://127.0.0.1:8000
-- dane do logowania: test@example.com / test123
+- application should be available at http://127.0.0.1:8000
+- signing in credentials: test@example.com / test123
