@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('formEntries.create'));
 });
 
 Route::prefix('/form-entries')
@@ -28,5 +28,3 @@ Route::prefix('/form-entries')
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
