@@ -19,6 +19,6 @@ class DatabaseSeeder extends Seeder
             'password' => 'test123',
         ]);
 
-        FormEntry::factory()->count(10)->create();
+        FormEntry::factory()->count(5)->create();
     }
 }

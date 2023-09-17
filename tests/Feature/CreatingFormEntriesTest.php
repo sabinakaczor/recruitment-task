@@ -51,7 +51,7 @@ class CreatingFormEntriesTest extends TestCase
 
     public function testShouldCreateFormEntry(): void
     {
-        Storage::fake('attachments');
+        Storage::fake('public');
 
         $data = $this->getCorrectRequestData();
         
@@ -72,7 +72,7 @@ class CreatingFormEntriesTest extends TestCase
         $this->assertEquals($data['first_name'], $model->first_name);
         $this->assertEquals($data['last_name'], $model->last_name);
         $filePath = substr($model->attachment, strlen('/storage'));
-        Storage::assertExists($filePath);
+        Storage::disk('public')->assertExists($filePath);
     }
 
     /**

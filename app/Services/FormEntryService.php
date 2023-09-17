@@ -14,8 +14,8 @@ class FormEntryService
         $attachment = Arr::pull($data, 'attachment');
 
         $model = new FormEntry($data);
-        $filename = Storage::putFile('attachments', $attachment);
-        $model->attachment = Storage::url($filename);
+        $filename = Storage::disk('public')->putFile('attachments', $attachment);
+        $model->attachment = Storage::disk('public')->url($filename);
         $model->save();
 
         return $model;
@@ -23,6 +23,6 @@ class FormEntryService
 
     public function list(): Collection
     {
-        return FormEntry::all();
+        return FormEntry::query()->latest()->get();
     }
 }
